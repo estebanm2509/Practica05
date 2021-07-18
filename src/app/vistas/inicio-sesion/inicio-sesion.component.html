@@ -1,0 +1,21 @@
+<div class="row mx-auto justify-content-center">
+    <div class="col align-items-center">
+        <h2 class="text-center mt-5">Inicio de sesión</h2>
+        <div *ngIf="mensaje" class="alert alert-secondary text-center w-50 mx-auto" role="alert">
+            {{mensaje}}
+        </div>
+        <form class="form-group w-25 mx-auto">
+            <div class="row justify-content-center mx-auto">
+                <input [(ngModel)]="correo" name="correo" type="text" 
+                    placeholder="Correo electrónico" class="form-control text-center my-2">
+                <input [(ngModel)]="contrasenia" name="contrasenia" type="password" 
+                    placeholder="Contraseña" class="form-control text-center my-2">
+                <input (click)="iniciarSesion()" type="button" value="Ingresar"
+                    class="btn btn-primary text-center my-2 w-50">
+                <span class="text-center mt-3">¿Aún no tienes un cuenta?<br>
+                    <a href="/crear-cuenta">¡Registrate!</a>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

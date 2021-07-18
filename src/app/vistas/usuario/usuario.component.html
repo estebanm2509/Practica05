@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col my-2">
+        <h4 class="text-left ml-3 mr-auto">
+            Bienvenido, {{usuario.duenio.nombre}} {{usuario.duenio.apellido}}
+        </h4>
+    </div>
+    <div class="col my-2">
+        <a (click)="cerrarSesion()" 
+            class="btn btn-primary float-right mr-2">Cerrar sesión</a>
+        <a href="/cuenta/datos-personales" 
+            class="btn btn-secondary float-right mx-2">Datos personales</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h5 class="text-center">
+            Pedidos realizados
+        </h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Total de productos</th>
+                    <th>Subtotal</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

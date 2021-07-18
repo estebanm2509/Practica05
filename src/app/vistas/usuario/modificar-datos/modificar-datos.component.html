@@ -1,0 +1,24 @@
+<div class="row mx-auto justify-content-center">
+    <div class="col align-items-center">
+        <h2 class="text-center mt-5">Registrar usuario</h2>
+        <div *ngIf="mensaje" class="alert alert-secondary text-center w-50 mx-auto" role="alert">
+            {{mensaje}}
+        </div>
+        <form class="form-group w-25 mx-auto">
+            <div class="row justify-content-center mx-auto">
+                <input [(ngModel)]="usuario.duenio.cedula" name="cedula" type="text" placeholder="Cédula" 
+                    class="form-control text-center my-2" maxlength="10" required>
+                <input [(ngModel)]="usuario.duenio.nombre" name="nombre" type="text" placeholder="Nombre" 
+                    class="form-control text-center my-2" required>
+                <input [(ngModel)]="usuario.duenio.apellido" name="apellido" type="text" placeholder="Apellido" 
+                    class="form-control text-center my-2" required>
+                <input [(ngModel)]="usuario.correo" name="correo" type="text" placeholder="Correo electrónico" 
+                    class="form-control text-center my-2" required>
+                <input [(ngModel)]="usuario.contrasenia" name="contrasenia" type="password"  placeholder="Contraseña" 
+                    class="form-control text-center my-2" required>  
+                <input (click)="guardarCambios()" type="button" value="Crear cuenta"
+                    class="btn btn-primary text-center my-2 w-50">
+            </div>
+        </form>
+    </div>
+</div>
