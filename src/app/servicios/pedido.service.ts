@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from  '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Bodega } from '../modelos/bodega';
 import { Pedido } from '../modelos/pedido';
 
 @Injectable({
@@ -13,8 +12,8 @@ export class PedidoService {
 
   constructor(private http: HttpClient) { }
 
-  listarProductos(bodega_id: number): Observable<any> {
-    return this.http.get(`${this.url}/listar?bodega-id=${bodega_id}`);
+  listarProductos(bodegaID: number): Observable<any> {
+    return this.http.get(`${this.url}/listar?bodega-id=${bodegaID}`);
   }
 
   realizarPedido(pedido: Pedido): Observable<any> {
@@ -23,5 +22,17 @@ export class PedidoService {
 
   revisarEstadoPedido(id: number): Observable<any> {
     return this.http.get(`${this.url}/revisar-estado-pedido?id=${id}`);
+  }
+
+  listarBodegas(): Observable<any> {
+    return this.http.get(`${this.url}/listar-bodegas`);
+  }
+
+  listarFacturas(clienteID: number): Observable<any> {
+    return this.http.get(`${this.url}/listar-facturas?cliente-id=${clienteID}`);
+  }
+
+  listarPedidos(clienteID: number): Observable<any> {
+    return this.http.get(`${this.url}/listar-pedidos?cliente-id=${clienteID}`);
   }
 }

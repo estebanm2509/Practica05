@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pedido } from 'src/app/modelos/pedido';
+import { Factura } from 'src/app/modelos/factura';
 import { Usuario } from 'src/app/modelos/usuario';
 import { PedidoService } from 'src/app/servicios/pedido.service';
 
 @Component({
-  selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.css']
+  selector: 'app-facturas',
+  templateUrl: './facturas.component.html',
+  styleUrls: ['./facturas.component.css']
 })
-export class UsuarioComponent implements OnInit {
-
+export class FacturasComponent implements OnInit {
+  
   usuario: Usuario;
-  pedidos: Pedido[];
-
+  facturas: Factura[];
+  
   constructor(
     private servicioPedido: PedidoService,
     private router: Router
@@ -23,9 +23,9 @@ export class UsuarioComponent implements OnInit {
     const usuarioJSON = localStorage.getItem('usuario-vigente');
     if (usuarioJSON) {
       this.usuario = JSON.parse(usuarioJSON);
-      this.servicioPedido.listarPedidos(this.usuario.duenio.id)
+      this.servicioPedido.listarFacturas(this.usuario.duenio.id)
         .subscribe(
-          pedidos => this.pedidos = pedidos
+          facturas => this.facturas = facturas
         );
     } else {
       this.router.navigate(['inicio-sesion']);
@@ -37,7 +37,7 @@ export class UsuarioComponent implements OnInit {
     this.router.navigate(['inicio-sesion']);
   }
 
-  verDetallePedido(id: number): void {
+  verDetalleFactura(id: number): void {
     
   }
 }

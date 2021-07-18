@@ -9,34 +9,34 @@
             class="btn btn-primary float-right mr-2">Cerrar sesión</a>
         <a href="/cuenta" 
             class="btn btn-secondary float-right mx-2">Datos personales</a>
-        <a href="/cuenta/facturas" 
-            class="btn btn-secondary float-right mx-2">Facturas</a>
+        <a href="/cuenta/pedidos" 
+            class="btn btn-secondary float-right mx-2">Pedidos</a>
     </div>
 </div>
 <div class="row">
     <div class="col">
         <h5 class="text-center my-4">
-            Pedidos realizados
+            Facturas
         </h5>
         <table class="table table-striped mx-auto">
             <thead>
                 <tr class="text-center">
                     <th>Fecha</th>
                     <th>Total de productos</th>
-                    <th>Estado</th>
                     <th>Subtotal</th>
+                    <th>Total</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let pedido of pedidos" class="text-center">
-                    <td>{{pedido.fecha}}</td>
-                    <td>{{pedido.detalles.length}}</td>
-                    <td>{{pedido.estado}}</td>
-                    <td>{{pedido.subtotal}}</td>
+                <tr *ngFor="let factura of facturas" class="text-center">
+                    <td>{{factura.fecha}}</td>
+                    <td>{{factura.detalles.length}}</td>
+                    <td>{{factura.subtotal}}</td>
+                    <td>{{factura.total}}</td>
                     <td>
-                        <a (click)="verDetallePedido(pedido.id)" class="btn btn-info">
-                            Ver estado
+                        <a (click)="verDetalleFactura(factura.id)" class="btn btn-info">
+                            Ver detalle
                         </a>
                     </td>
                 </tr>

@@ -11,22 +11,11 @@ export class Factura {
     total: number;
     activa: boolean;
 
-    static readonly IVA:number = 0.12;
+    static readonly IVA: number = 0.12;
 
     constructor() {
         this.activa = true;
         this.fecha = new Date();
         this.detalles = [];
-    }
-
-    calcularSubtotal(): void {
-        this.subtotal = 0;
-        this.detalles.forEach(detalle => {
-            this.subtotal += detalle.calcularSubtotal();
-        })
-    }
-
-    calcularTotal(): void {
-        this.total = this.subtotal + (this.subtotal * Factura.IVA);
     }
 }

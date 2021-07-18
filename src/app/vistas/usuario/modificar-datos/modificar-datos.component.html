@@ -1,6 +1,23 @@
+<div class="row">
+    <div class="col my-2">
+        <h4 class="text-left ml-3 mr-auto">
+            Bienvenido, {{usuario.duenio.nombre}} {{usuario.duenio.apellido}}
+        </h4>
+    </div>
+    <div class="col my-2">
+        <a (click)="cerrarSesion()" 
+            class="btn btn-primary float-right mr-2">Cerrar sesión</a>
+        <a href="/cuenta/pedidos" 
+            class="btn btn-secondary float-right mx-2">Pedidos</a>
+        <a href="/cuenta/facturas" 
+            class="btn btn-secondary float-right mx-2">Facturas</a>
+        <a (click)="eliminarCuenta()" 
+            class="btn btn-danger float-right mx-2">Eliminar cuenta</a>
+    </div>
+</div>
 <div class="row mx-auto justify-content-center">
     <div class="col align-items-center">
-        <h2 class="text-center mt-5">Registrar usuario</h2>
+        <h2 class="text-center mt-5">Datos personales</h2>
         <div *ngIf="mensaje" class="alert alert-secondary text-center w-50 mx-auto" role="alert">
             {{mensaje}}
         </div>
@@ -12,11 +29,15 @@
                     class="form-control text-center my-2" required>
                 <input [(ngModel)]="usuario.duenio.apellido" name="apellido" type="text" placeholder="Apellido" 
                     class="form-control text-center my-2" required>
+                <input [(ngModel)]="usuario.duenio.direccion" name="direccion" type="text" placeholder="Direccion" 
+                    class="form-control text-center my-2" required>
+                <input [(ngModel)]="usuario.duenio.telefono" name="telefono" type="text" placeholder="Teléfono" 
+                    class="form-control text-center my-2" required>
                 <input [(ngModel)]="usuario.correo" name="correo" type="text" placeholder="Correo electrónico" 
                     class="form-control text-center my-2" required>
                 <input [(ngModel)]="usuario.contrasenia" name="contrasenia" type="password"  placeholder="Contraseña" 
                     class="form-control text-center my-2" required>  
-                <input (click)="guardarCambios()" type="button" value="Crear cuenta"
+                <input (click)="guardarCambios()" type="button" value="Guardar cambios"
                     class="btn btn-primary text-center my-2 w-50">
             </div>
         </form>

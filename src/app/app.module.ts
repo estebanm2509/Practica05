@@ -11,6 +11,8 @@ import { InicioSesionComponent } from './vistas/inicio-sesion/inicio-sesion.comp
 import { CrearCuentaComponent } from './vistas/crear-cuenta/crear-cuenta.component';
 import { UsuarioComponent } from './vistas/usuario/usuario.component';
 import { ModificarDatosComponent } from './vistas/usuario/modificar-datos/modificar-datos.component';
+import { FacturasComponent } from './vistas/usuario/facturas/facturas.component';
+import { CatalogoComponent } from './vistas/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ModificarDatosComponent } from './vistas/usuario/modificar-datos/modifi
     CrearCuentaComponent,
     UsuarioComponent,
     ModificarDatosComponent,
+    FacturasComponent,
+    CatalogoComponent,
   ],
   imports: [
     BrowserModule,
