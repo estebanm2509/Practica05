@@ -15,11 +15,4 @@ export class Pedido {
         this.estado = "ENVIADO";
         this.detalles = [];
     }
-
-    calcularSubtotal(): void {
-        this.subtotal = 0;
-        this.detalles.forEach(detalle => {
-            this.subtotal += detalle.calcularSubtotal();
-        })
-    }
 }

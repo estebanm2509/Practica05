@@ -35,4 +35,8 @@ export class PedidoService {
   listarPedidos(clienteID: number): Observable<any> {
     return this.http.get(`${this.url}/listar-pedidos?cliente-id=${clienteID}`);
   }
+
+  listarCategorias(): Observable<any> {
+    return this.http.get(`${this.url}/listar-categorias`);
+  }
 }

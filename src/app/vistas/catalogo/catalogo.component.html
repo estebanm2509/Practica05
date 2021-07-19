@@ -1,1 +1,38 @@
-<p>catalogo works!</p>
+<div class="row">
+    <div class="col my-2">
+        <a href="/inicio-sesion" 
+            class="btn btn-primary float-right mr-2">Iniciar sesión</a>
+    </div>
+</div>
+<div class="row mx-auto">
+    <div class="row mx-auto w-100">
+        <label class="my-2 ml-3">Bodega:</label>
+        <div class="col form-group mx-1">
+            <select name="bodegas" [(ngModel)]="bodegaSeleccionada" class="form-control">
+                <option [value]="bodega" *ngFor="let bodega of bodegas">
+                    {{bodega.descripcion}}
+                </option>
+            </select>
+        </div>
+        <label class="my-2 ml-3">Categoria:</label>
+        <div class="col mx-1">
+            <select name="categorias" [(ngModel)]="categoriaSeleccionada" class="form-control">
+                <option value="TODAS">Todas</option>
+                <option [value]="categoria" *ngFor="let categoria of categorias">
+                    {{categoria | titlecase}}
+                </option>
+            </select>
+        </div>
+        <div class="col mx-1">
+            <button (click)="filtrarProductos()" class="btn btn-secondary">Filtrar</button>
+        </div>
+    </div>
+    <div *ngFor="let existencia of existenciasFiltradas" class="col card mx-2" style="width: 16rem;">
+        <div class="card-body">
+            <h3>{{existencia.producto.descripcion}}</h3>
+            <p class="card-text">Unidades diponibles: {{existencia.cantidad}}</p>
+            <button (click)="agregarAlCarrito(existencia)"class="btn btn-success float-right">+</button>
+            <button (click)="quitarDelCarrito(existencia)"class="btn btn-danger float-right">-</button>
+        </div>
+    </div>
+</div>

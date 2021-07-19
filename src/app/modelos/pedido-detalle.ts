@@ -7,8 +7,4 @@ export class PedidoDetalle {
     cantidad: number;
 
     constructor() {}
-
-    calcularSubtotal(): number {
-        return this.producto.precio * this.cantidad;
-    }
 }
