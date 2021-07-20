@@ -14,6 +14,8 @@ import { ModificarDatosComponent } from './vistas/usuario/modificar-datos/modifi
 import { FacturasComponent } from './vistas/usuario/facturas/facturas.component';
 import { CatalogoComponent } from './vistas/catalogo/catalogo.component';
 import { ConfirmarPedidoComponent } from './vistas/catalogo/confirmar-pedido/confirmar-pedido.component';
+import { DetallePedidoComponent } from './vistas/usuario/detalle-pedido/detalle-pedido.component';
+import { DetalleFacturaComponent } from './vistas/usuario/facturas/detalle-factura/detalle-factura.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ConfirmarPedidoComponent } from './vistas/catalogo/confirmar-pedido/con
     FacturasComponent,
     CatalogoComponent,
     ConfirmarPedidoComponent,
+    DetallePedidoComponent,
+    DetalleFacturaComponent,
   ],
   imports: [
     BrowserModule,

@@ -34,10 +34,16 @@ export class FacturasComponent implements OnInit {
 
   cerrarSesion(): void {
     sessionStorage.removeItem('usuario-vigente');
+    sessionStorage.removeItem('factura-revision');
+    sessionStorage.removeItem('pedido-revision');
     this.router.navigate(['inicio-sesion']);
   }
 
   verDetalleFactura(id: number): void {
-    
+    let factura = this.facturas.find(factura => factura.id == id);
+    if (factura) {
+      sessionStorage.setItem('factura-revision',JSON.stringify(factura));
+      this.router.navigate(['cuenta/facturas/' + id]);
+    }
   }
 }

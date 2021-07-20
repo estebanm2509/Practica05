@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col my-2">
+        <h4 class="text-left ml-3 mr-auto">
+            Bienvenido, {{usuario.duenio.nombre}} {{usuario.duenio.apellido}}
+        </h4>
+    </div>
+    <div class="col my-2">
+        <a (click)="cerrarSesion()" 
+            class="btn btn-primary float-right mr-2">Cerrar sesión</a>
+        <a href="/cuenta" 
+            class="btn btn-secondary float-right mx-2">Datos personales</a>
+        <a href="/cuenta/facturas" 
+            class="btn btn-secondary float-right mx-2">Facturas</a>
+        <a href="/inicio" 
+            class="btn btn-secondary float-right mx-2">Catalogo</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h5 class="text-center my-4">
+            Pedido #{{pedido.id}}
+        </h5>
+        <span class="ml-3 d-block">Fecha: {{pedido.fecha}}</span>
+        <span class="ml-3 d-block">Estado: {{pedido.estado}}</span>
+        <span class="ml-3 d-block">Subtotal: {{pedido.subtotal}}</span>
+        <span class="ml-3 d-block">Total: {{calcularTotal()}}</span>
+        <table class="table table-striped mx-auto">
+            <thead>
+                <tr class="text-center">
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detalle of pedido.detalles" class="text-center">
+                    <td>{{detalle.producto.descripcion}}</td>
+                    <td>{{detalle.cantidad}}</td>
+                    <td>{{calcularSubtotal(detalle.producto.precio, detalle.cantidad)}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

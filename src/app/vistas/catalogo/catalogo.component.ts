@@ -26,7 +26,7 @@ export class CatalogoComponent implements OnInit {
   constructor(
     private servicioPedido: PedidoService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     const carritoJSON = sessionStorage.getItem('carrito');

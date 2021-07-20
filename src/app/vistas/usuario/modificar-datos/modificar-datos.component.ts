@@ -66,6 +66,8 @@ export class ModificarDatosComponent implements OnInit {
 
   cerrarSesion(): void {
     sessionStorage.removeItem('usuario-vigente');
+    sessionStorage.removeItem('factura-revision');
+    sessionStorage.removeItem('pedido-revision');
     this.router.navigate(['inicio-sesion']);
   }
 }
