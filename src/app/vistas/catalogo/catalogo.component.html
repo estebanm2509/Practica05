@@ -1,15 +1,18 @@
-<div class="row">
+<div class="row bg-dark">
+    <div class="col my-auto">
+        <h4 class="text-light">Practica 05 - Tienda web en Angular + Microsoft Azure</h4>
+    </div>
     <div class="col my-2">
         <a href="/inicio-sesion" 
             class="btn btn-primary float-right mr-2">Iniciar sesión</a>
     </div>
 </div>
-<div class="row mx-auto">
+<div class="row mx-auto my-3">
     <div class="row mx-auto w-100">
         <label class="my-2 ml-3">Bodega:</label>
         <div class="col form-group mx-1">
             <select name="bodegas" [(ngModel)]="bodegaSeleccionada" class="form-control">
-                <option [value]="bodega" *ngFor="let bodega of bodegas">
+                <option [value]="bodega.id" *ngFor="let bodega of bodegas">
                     {{bodega.descripcion}}
                 </option>
             </select>
@@ -27,12 +30,30 @@
             <button (click)="filtrarProductos()" class="btn btn-secondary">Filtrar</button>
         </div>
     </div>
+    <div class="row w-100 my-3">
+        <div class="col">
+            <span class="d-block ml-1">
+                <strong>T. productos agregados:</strong> {{carrito.length}}
+            </span>
+            <span class="d-block ml-1">
+                <strong>T. unidades agregadas:</strong> {{totalProductoIndividuales}}
+            </span>
+        </div>
+        <div class="col">
+            <button (click)="irARealizarPedido()"
+                class="btn btn-info mx-2 float-right">Realizar pedido</button>
+            <button (click)="descartarPedido()"
+                class="btn btn-danger mx-2 float-right">Descartar</button>
+        </div>
+    </div>
     <div *ngFor="let existencia of existenciasFiltradas" class="col card mx-2" style="width: 16rem;">
         <div class="card-body">
             <h3>{{existencia.producto.descripcion}}</h3>
             <p class="card-text">Unidades diponibles: {{existencia.cantidad}}</p>
-            <button (click)="agregarAlCarrito(existencia)"class="btn btn-success float-right">+</button>
-            <button (click)="quitarDelCarrito(existencia)"class="btn btn-danger float-right">-</button>
+            <button (click)="quitarDelCarrito(existencia)" 
+                class="btn btn-danger mx-1 float-right">-</button>
+            <button (click)="agregarAlCarrito(existencia)"
+                class="btn btn-success mx-1 float-right">+</button>
         </div>
     </div>
 </div>

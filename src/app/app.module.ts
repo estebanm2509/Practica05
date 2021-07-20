@@ -13,6 +13,7 @@ import { UsuarioComponent } from './vistas/usuario/usuario.component';
 import { ModificarDatosComponent } from './vistas/usuario/modificar-datos/modificar-datos.component';
 import { FacturasComponent } from './vistas/usuario/facturas/facturas.component';
 import { CatalogoComponent } from './vistas/catalogo/catalogo.component';
+import { ConfirmarPedidoComponent } from './vistas/catalogo/confirmar-pedido/confirmar-pedido.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CatalogoComponent } from './vistas/catalogo/catalogo.component';
     ModificarDatosComponent,
     FacturasComponent,
     CatalogoComponent,
+    ConfirmarPedidoComponent,
   ],
   imports: [
     BrowserModule,

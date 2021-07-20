@@ -1,0 +1,62 @@
+<div class="row bg-dark">
+    <div class="col my-2">
+        <h4 class="text-light text-left ml-3 mr-auto my-2">
+            Bienvenido, {{usuario.duenio.nombre}} {{usuario.duenio.apellido}}
+        </h4>
+    </div>
+    <div class="col my-2">
+        <a (click)="cerrarSesion()" 
+            class="btn btn-primary float-right mr-2">Cerrar sesión</a>
+        <a href="/cuenta/pedidos" 
+            class="btn btn-secondary float-right mx-2">Cuenta</a>
+        <a href="/inicio" 
+            class="btn btn-secondary float-right mx-2">Catalogo</a>
+    </div>
+</div>
+<div class="row mx-auto my-3">
+    <div class="row w-100 my-3 ml-2">
+        <h3 class="text-center">Detalle de pedido</h3>
+    </div>
+    <div class="row w-100 my-3">
+        <div class="col w-25">
+            <div class="row">
+                <div class="col">
+                    <span class="d-block ml-1">
+                        <strong>T. productos agregados:</strong> {{carrito.length}}
+                    </span>
+                    <span class="d-block ml-1">
+                        <strong>T. unidades agregadas:</strong> {{totalProductoIndividuales}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col w-25">
+            <div class="row">
+                <div class="col">
+                    <span class="d-block ml-1">
+                        <strong>Subtotal:</strong> {{pedido.subtotal}}
+                    </span>
+                    <span class="d-block ml-1">
+                        <strong>Total:</strong> {{calcularTotal()}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col w-25">
+            <div class="row">
+                <div class="col">
+                    <button (click)="confirmarPedido()"
+                        class="btn btn-info mx-2 float-right ml-1">Confirmar pedido</button>
+                    <button (click)="descartarPedido()"
+                        class="btn btn-danger mx-2 float-right d-block mx-1">Descartar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let detalle of carrito" class="col card mx-2" style="width: 16rem;">
+        <div class="card-body">
+            <h3>{{detalle.producto.descripcion}}</h3>
+            <p class="card-text">Unidades diponibles: {{detalle.cantidad}}</p>
+        </div>
+    </div>
+</div>

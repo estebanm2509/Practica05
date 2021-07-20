@@ -19,7 +19,7 @@ export class ModificarDatosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const usuarioJSON = localStorage.getItem('usuario-vigente');
+    const usuarioJSON = sessionStorage.getItem('usuario-vigente');
     if (usuarioJSON) {
       this.usuario = JSON.parse(usuarioJSON);
     } else {
@@ -40,7 +40,7 @@ export class ModificarDatosComponent implements OnInit {
     this.servicioUsuario.modificarCuentaUsuario(this.usuario)
     .subscribe(
       res => {
-        localStorage.setItem('usuario-vigente', JSON.stringify(this.usuario));
+        sessionStorage.setItem('usuario-vigente', JSON.stringify(this.usuario));
       }, 
       error => {
         console.log(error);
@@ -53,7 +53,7 @@ export class ModificarDatosComponent implements OnInit {
       this.servicioUsuario.eliminarCuenta(this.usuario.correo)
         .subscribe(
           res => {
-            localStorage.removeItem('usuario-vigente');
+            sessionStorage.removeItem('usuario-vigente');
             this.router.navigate(['inicio-sesion']);
           },
           error => {
@@ -65,7 +65,7 @@ export class ModificarDatosComponent implements OnInit {
   }
 
   cerrarSesion(): void {
-    localStorage.removeItem('usuario-vigente');
+    sessionStorage.removeItem('usuario-vigente');
     this.router.navigate(['inicio-sesion']);
   }
 }

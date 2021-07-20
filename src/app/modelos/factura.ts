@@ -15,7 +15,6 @@ export class Factura {
 
     constructor() {
         this.activa = true;
-        this.fecha = new Date();
         this.detalles = [];
     }
 }

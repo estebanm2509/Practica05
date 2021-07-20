@@ -11,8 +11,6 @@ export class Pedido {
     subtotal: number;
 
     constructor() {
-        this.fecha = new Date();
-        this.estado = "ENVIADO";
         this.detalles = [];
     }
 }

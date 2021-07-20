@@ -20,7 +20,7 @@ export class FacturasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const usuarioJSON = localStorage.getItem('usuario-vigente');
+    const usuarioJSON = sessionStorage.getItem('usuario-vigente');
     if (usuarioJSON) {
       this.usuario = JSON.parse(usuarioJSON);
       this.servicioPedido.listarFacturas(this.usuario.duenio.id)
@@ -33,7 +33,7 @@ export class FacturasComponent implements OnInit {
   }
 
   cerrarSesion(): void {
-    localStorage.removeItem('usuario-vigente');
+    sessionStorage.removeItem('usuario-vigente');
     this.router.navigate(['inicio-sesion']);
   }
 

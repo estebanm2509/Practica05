@@ -19,8 +19,8 @@ export class InicioSesionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (localStorage.getItem('usuario-vigente')) {
-      this.router.navigate(['cuenta']);
+    if (sessionStorage.getItem('usuario-vigente')) {
+      this.router.navigate(['cuenta/pedidos']);
     }
   }
 
@@ -38,8 +38,12 @@ export class InicioSesionComponent implements OnInit {
               .subscribe(
                 usuario => {
                   if (usuario.rol === 'CLIENTE') {
-                    localStorage.setItem('usuario-vigente', JSON.stringify(usuario));
-                    this.router.navigate(['cuenta']);
+                    sessionStorage.setItem('usuario-vigente', JSON.stringify(usuario));
+                    if (sessionStorage.getItem('carrito')) {
+                      this.router.navigate(['confirmar-pedido']);
+                    } else {
+                      this.router.navigate(['cuenta/pedidos']);
+                    }
                   } else {
                     this.mensaje = 'Esta cuenta no esta habilitada para ser usada desde este sitio web.';
                   }
