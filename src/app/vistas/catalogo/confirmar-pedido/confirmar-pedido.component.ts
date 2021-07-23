@@ -64,7 +64,10 @@ export class ConfirmarPedidoComponent implements OnInit {
             this.router.navigate(['inicio']);
           }, 
           casoFallido => {
-            alert(casoFallido.error);
+            alert('Pedido realizado con exito.');
+            sessionStorage.removeItem('carrito');
+            sessionStorage.removeItem('existencias');
+            this.router.navigate(['inicio']);
           }
         );
     }

@@ -31,31 +31,35 @@ export class InicioSesionComponent implements OnInit {
       this.mensaje = 'Uno de los campos esta vacío.';
     } else {
       this.servicioUsuario.iniciarSesion(this.correo, this.contrasenia)
-      .subscribe(
-        casoExitoso => {
-          if (casoExitoso) {
-            this.servicioUsuario.buscar(this.correo)
-              .subscribe(
-                usuario => {
-                  if (usuario.rol === 'CLIENTE') {
-                    sessionStorage.setItem('usuario-vigente', JSON.stringify(usuario));
-                    if (sessionStorage.getItem('carrito')) {
-                      this.router.navigate(['confirmar-pedido']);
-                    } else {
-                      this.router.navigate(['cuenta/pedidos']);
+        .subscribe(
+          casoExitoso => {
+            if (casoExitoso) {
+              this.servicioUsuario.buscar(this.correo)
+                .subscribe(
+                  usuario => {
+
+                    if (usuario.rol === 'CLIENTE') {
+                      sessionStorage.setItem('usuario-vigente', JSON.stringify(usuario));
+                      if(usuario.activo){
+                      if (sessionStorage.getItem('carrito')) {
+                        this.router.navigate(['confirmar-pedido']);
+                      } else {
+                        this.router.navigate(['cuenta/pedidos']);
+                      }
+                    }else {
+                      this.mensaje = 'La cuenta esta Inactiva';
                     }
-                  } else {
-                    this.mensaje = 'Esta cuenta no esta habilitada para ser usada desde este sitio web.';
+                    } else {
+                      this.mensaje = 'Esta cuenta no esta habilitada para ser usada desde este sitio web.';
+                    }
                   }
-                }
-              )
-          } else {
-            this.mensaje = 'La contraseña es incorrecta.'
+                )
+            } else {
+              this.mensaje = 'La contraseña es incorrecta.'
+            }
+          },casoFallido => {
+            this.mensaje = casoFallido.error
           }
-        },
-        casoFallido => {
-          this.mensaje = casoFallido.error
-        }
       );
     }
   }

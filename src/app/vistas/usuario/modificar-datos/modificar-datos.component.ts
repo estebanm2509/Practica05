@@ -60,7 +60,6 @@ export class ModificarDatosComponent implements OnInit {
             console.log(error);
           }
       );
-      
     }
   }
 
